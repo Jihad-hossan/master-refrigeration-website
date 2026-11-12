@@ -1,5 +1,5 @@
 const http=require('http'),fs=require('fs'),path=require('path');
-const root=path.join(__dirname,'site');
+const root=__dirname;
 const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.jpg':'image/jpeg','.webp':'image/webp'};
 http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p==='/')p='/index.html';
 const f=path.join(root,path.normalize(p));if(!f.startsWith(root)){r.writeHead(403);return r.end();}
